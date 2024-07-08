@@ -11,7 +11,6 @@ int main() {
         while (getchar() != '\n'); 
     }
 
-    // Input validation for columns
     printf("Enter the number of columns (1-9): ");
     while (scanf("%d", &col) != 1 || col < 1 || col > 9) {
         printf("Invalid input for columns. Please enter a number between 1 and 9.\n");
@@ -45,7 +44,6 @@ int main() {
         }
     }
 
-    // Output matrix elements in spiral order
     printf("Matrix elements in spiral order: ");
     int i, left = 0, right = col - 1, top = 0, bottom = row - 1;
 
@@ -56,13 +54,11 @@ int main() {
         }
         top++;
 
-        // Print right column
         for (i = top; i <= bottom; i++) {
             printf("%d ", Matrix[i][right]);
         }
         right--;
 
-        // Print bottom row (if exists)
         if (top <= bottom) {
             for (i = right; i >= left; i--) {
                 printf("%d ", Matrix[bottom][i]);
@@ -70,7 +66,6 @@ int main() {
             bottom--;
         }
 
-        // Print left column (if exists)
         if (left <= right) {
             for (i = bottom; i >= top; i--) {
                 printf("%d ", Matrix[i][left]);
@@ -79,7 +74,6 @@ int main() {
         }
     }
 
-    // Free allocated memory
     for (int i = 0; i < row; i++) {
         free(Matrix[i]);
     }
